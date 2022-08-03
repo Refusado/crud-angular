@@ -7,7 +7,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  apiUrl = 'https://sheet.best/api/sheets/01ae3d2c-cd5f-4d33-97bb-e5193331906c'
+  apiUrl = 'https://sheet.best/api/sheets/32d0a273-cf1b-4962-b3f4-f86fa31b7045'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -18,13 +18,19 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   // C R U D = CREATE, READ, UPDATE, DELETE
-  // RETORNA A LISTA DE USUÁRIOS
+
+  // C - SALVA USUARIO NO BANCO
+  postUser(user: User): Observable<User> {
+    return this.httpClient.post<User>(this.apiUrl, user, this.httpOptions);
+  }
+
+  // R - RETORNA A LISTA DE USUÁRIOS
   getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(this.apiUrl);
   }
 
-  // SALVA USUARIO NO BANCO
-  postUser(user: User): Observable<User> {
-    return this.httpClient.post<User>(this.apiUrl, user, this.httpOptions);
+  // D - EXCLUI O USUÁRIO DO BANCO
+  deleteUser(id: number): Observable<User> {
+    return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`);
   }
 }

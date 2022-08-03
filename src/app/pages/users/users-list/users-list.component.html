@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
+          <td>0</td>
           <td>Renan</td>
           <td>Freitas</td>
           <td>19</td>
@@ -39,7 +39,7 @@
             <button class="btn btn-primary">Editar</button>
           </td>
           <td>
-            <button class="btn btn-danger">Excluir</button>
+            <button (click)="deleteUser(user.id)" class="btn btn-danger">Excluir</button>
           </td>
         </tr>
       </tbody>
