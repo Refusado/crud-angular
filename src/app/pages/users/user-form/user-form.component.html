@@ -1,31 +1,31 @@
 <div class="card w-100 my-5">
   <div class="card-body">
     <h1 class="card-title text-center">Lista de Usuários</h1>
-    <form>
+    <form [formGroup]="userForm">
       <div class="w-100 d-flex justify-content-between gap-2 my-4">
         <div class="form-floating w-50">
-          <input type="text" id="nome" class="form-control" placeholder="Digite o nome">
+          <input formControlName="nome" type="text" id="nome" class="form-control" placeholder="Digite o nome">
           <label for="nome">Nome</label>
         </div>
         <div class="form-floating w-50">
-          <input type="text" id="sobrenome" class="form-control" placeholder="Digite o sobrenome">
+          <input formControlName="sobrenome" type="text" id="sobrenome" class="form-control" placeholder="Digite o sobrenome">
           <label for="sobrenome">Sobrenome</label>
         </div>
       </div>
       <div class="w-100 d-flex justify-content-between gap-2 my-4">
         <div class="form-floating w-50">
-          <input type="text" id="idade" class="form-control" placeholder="Digite a idade">
+          <input formControlName="idade" type="text" id="idade" class="form-control" placeholder="Digite a idade">
           <label for="idade">Idade</label>
         </div>
         <div class="form-floating w-50">
-          <input type="text" id="profissao" class="form-control" placeholder="Digite a profissao">
+          <input formControlName="profissao" type="text" id="profissao" class="form-control" placeholder="Digite a profissao">
           <label for="profissao">Profissao</label>
         </div>
       </div>
       <div class="w-100 d-flex justify-content-between gap-2 my-4">
         <div class="form-floating col-12 mt-4">
           <button type="button" class="btn btn-outline-danger float-start">Cancelar</button>
-          <button type="button" class="btn btn-outline-primary float-end">Enviar</button>
+          <button (click)="createUser()" type="button" class="btn btn-outline-primary float-end">Enviar</button>
         </div>
       </div>
     </form>
