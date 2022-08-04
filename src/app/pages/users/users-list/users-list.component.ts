@@ -19,12 +19,23 @@ export class UsersListComponent implements OnInit {
   getUsers(): void {
     this.userService.getUsers().subscribe(response => {
       this.users = response;
+    }, (err) => {
+      console.log('ALGO DEU ERRADO:');
+      console.error(err.message);
+    }, () => {
+      console.info('Lista de usuários carregada');
     });
   }
 
   deleteUser(id: number): void {
     this.userService.deleteUser(id).subscribe((response:any) => {
       console.log(`Usuário ${response[0].nome} ${response[0].sobrenome} deletado com sucesso`);
+    }, (err) => {
+      console.log('ALGO DEU ERRADO:');
+      console.error(err.message);
+    }, () => {
+      this.getUsers();
+      console.info('Usuário deletado com sucesso');
     });
   }
 }

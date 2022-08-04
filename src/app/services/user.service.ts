@@ -29,8 +29,18 @@ export class UserService {
     return this.httpClient.get<User[]>(this.apiUrl);
   }
 
+  // U - ATUALIZA O USUÁRIO (UPDATE)
+  updateUser(id: string, user: User): Observable<User> {
+    return this.httpClient.put<User>(`${this.apiUrl}/id/${id}`, user, this.httpOptions);
+  }
+
   // D - EXCLUI O USUÁRIO DO BANCO
   deleteUser(id: number): Observable<User> {
     return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`);
+  }
+
+  // LISTA USUÁRIO ÚNICO
+  getUser(id: string): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.apiUrl}/id/${id}`);
   }
 }

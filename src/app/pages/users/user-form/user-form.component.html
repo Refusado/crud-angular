@@ -24,8 +24,8 @@
       </div>
       <div class="w-100 d-flex justify-content-between gap-2 my-4">
         <div class="form-floating col-12 mt-4">
-          <button type="button" class="btn btn-outline-danger float-start">Cancelar</button>
-          <button (click)="createUser()" type="button" class="btn btn-outline-primary float-end">Enviar</button>
+          <button [routerLink]="['/']" type="button" class="btn btn-outline-danger float-start">Cancelar</button>
+          <button (click)="actionButton()" type="button" class="btn btn-outline-primary float-end">Enviar</button>
         </div>
       </div>
     </form>
