@@ -10,6 +10,10 @@
           placeholder="Digite a tarefa">
       </mat-form-field>
     </mat-card-content>
-    <app-todo-item></app-todo-item>
+    <mat-list role="list">
+      <div *ngFor="let todo of todos">
+        <app-todo-item [todo]='todo' (remove)="removeTodo($event)"></app-todo-item>
+      </div>
+    </mat-list>
   </mat-card>
 </section>

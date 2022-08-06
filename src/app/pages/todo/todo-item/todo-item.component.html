@@ -1,9 +1,7 @@
-<mat-list role="list">
-  <mat-list-item role="listitem">
-    Primeiro item
-    <button mat-icon-button aria-label="Marca a tarefa como concluída">
-      <mat-icon>done</mat-icon>
-    </button>
-    <button mat-button color="warn">Excluir</button>
-  </mat-list-item>
-</mat-list>
+<mat-list-item class="h-100 my-2" role="listitem">
+  <button [ngStyle]="{ opacity: done ? '0.4' : '1'}" mat-icon-button aria-label="Marca a tarefa como concluída" (click)="markAsDone()">
+    <mat-icon>done</mat-icon>
+  </button>
+  <span class="w-100 ms-2" [ngStyle]="{ opacity: done ? '0.4' : '1'}">{{ todo.title }}</span>
+  <button class="d-flex justify-content-center" mat-raised-button color="warn" (click)="removeTodo()">Excluir</button>
+</mat-list-item>

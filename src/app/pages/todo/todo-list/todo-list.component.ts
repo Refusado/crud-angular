@@ -7,7 +7,18 @@ import { ToDo } from 'src/app/models/to-do';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-  toDos: ToDo[] = [];
+  todos: ToDo[] = [
+    {
+      id: 1,
+      title: 'comer uns cus',
+      done: false,
+    },
+    {
+      id: 1,
+      title: 'comer uns cus',
+      done: false,
+    },
+  ];
 
   constructor() { }
 
@@ -15,10 +26,14 @@ export class TodoListComponent implements OnInit {
   }
 
   addToDo(title: string): void {
-    const id = this.toDos.length + 1;
-    this.toDos.push(new ToDo(id, title, false));
+    const id = this.todos.length + 1;
+    this.todos.push(new ToDo(id, title, false));
 
-    console.log(this.toDos);
+    console.log(this.todos);
   }
 
+  removeTodo(todo: any) {
+    let i = this.todos.indexOf(todo);
+    this.todos.splice(i, 1);
+  }
 }
